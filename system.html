@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Jak działa system śledzenia | STT Swinoujscie Transshipment Terminal</title>
+<meta name="description" content="Skąd biorą się dane o kontenerze: system operacyjny terminalu, bramy OCR, komunikaty EDI, odprawa celna, AIS i standard DCSA Track &amp; Trace.">
+<meta property="og:title" content="STT Swinoujscie Transshipment Terminal">
+<meta property="og:description" content="Budowa i obsługa terminalu kontenerowego w Świnoujściu. Śledzenie kontenerów dla klientów.">
+<meta property="og:image" content="img/og.jpg">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"STT SWINOUJSCIE TRANSSHIPMENT TERMINAL sp. z o.o.","email":"wolincompany@gmail.com","taxID":"5272958607","address":{"@type":"PostalAddress","streetAddress":"ul. Chmielna 73","postalCode":"00-801","addressLocality":"Warszawa","addressCountry":"PL"}}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="STT, strona główna">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#0b2545"/><rect x="8" y="9" width="24" height="6" rx="1" fill="#fff"/><rect x="8" y="17" width="24" height="6" rx="1" fill="#7fc3d9"/><path d="M6 30c3.5-3 7-3 10.5 0s7 3 10.5 0 5-2.4 7-1.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <div><b>STT</b><span>Swinoujscie Transshipment Terminal</span></div>
+    </a>
+    <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav class="menu" id="menu">
+      <a href="index.html#spolka">O spółce</a>
+      <a href="index.html#obszary">Obszary</a>
+      <a href="system.html" class="akt" aria-current="page">Jak działa system</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a class="btn btn-g btn-s" href="portal.html">Strefa klienta</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="naglowek-pod">
+    <div class="wrap">
+      <h1>Jak działa system śledzenia kontenerów</h1>
+      <p>Portal klienta sam niczego nie mierzy. Pokazuje dane, które terminal i tak zbiera przy każdej operacji: od zgłoszenia armatora, przez bramę i suwnicę, po odprawę celną. Poniżej opis, skąd te dane pochodzą i jak trafiają do klienta.</p>
+    </div>
+  </section>
+
+  <section class="sek" style="border-top:0">
+    <div class="wrap">
+      <h2>Przepływ danych</h2>
+      <figure class="schemat">
+        <div class="schemat-pc"><svg viewBox="0 0 1000 560" role="img" aria-label="Schemat przepływu danych do portalu klienta" font-family="IBM Plex Sans, sans-serif"><defs><marker id="gr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b6e8f"/></marker></defs><text x="20" y="22" font-size="13" fill="#5a6876">Źródła danych</text><text x="390" y="22" font-size="13" fill="#5a6876">Terminal</text><text x="730" y="22" font-size="13" fill="#5a6876">Dla klientów</text><rect x="20" y="36" width="270" height="68" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="34" y="62.0" font-size="15" font-weight="600" fill="#0b2545">Armatorzy (EDI)</text><text x="34" y="80.0" font-size="12.5" fill="#5a6876">COPARN, BAPLIE, COARRI, CODECO</text><line x1="290" y1="70" x2="388" y2="260" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="20" y="122" width="270" height="68" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="34" y="148.0" font-size="15" font-weight="600" fill="#0b2545">Bramy z kamerami OCR</text><text x="34" y="166.0" font-size="12.5" fill="#5a6876">numer, plomba, tablica rejestracyjna</text><line x1="290" y1="156" x2="388" y2="260" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="20" y="208" width="270" height="68" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="34" y="234.0" font-size="15" font-weight="600" fill="#0b2545">Suwnice i wozy</text><text x="34" y="252.0" font-size="12.5" fill="#5a6876">telemetria i potwierdzenia ruchów</text><line x1="290" y1="242" x2="388" y2="260" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="20" y="294" width="270" height="68" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="34" y="320.0" font-size="15" font-weight="600" fill="#0b2545">Port Community System</text><text x="34" y="338.0" font-size="12.5" fill="#5a6876">wymiana danych w porcie</text><line x1="290" y1="328" x2="388" y2="260" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="20" y="380" width="270" height="68" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="34" y="406.0" font-size="15" font-weight="600" fill="#0b2545">Odprawa celna</text><text x="34" y="424.0" font-size="12.5" fill="#5a6876">zwolnienia i blokady</text><line x1="290" y1="414" x2="388" y2="260" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="20" y="466" width="270" height="68" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="34" y="492.0" font-size="15" font-weight="600" fill="#0b2545">AIS i czujniki IoT</text><text x="34" y="510.0" font-size="12.5" fill="#5a6876">pozycja statku, temperatura reefer</text><line x1="290" y1="500" x2="388" y2="260" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="390" y="190" width="250" height="140" rx="6" fill="#0b2545" stroke="#0b2545" stroke-width="1.5"/><text x="404" y="252.0" font-size="17" font-weight="600" fill="#fff">System operacyjny</text><text x="404" y="270.0" font-size="13" fill="#c9d6e3">terminalu (TOS)</text><text x="404" y="286.0" font-size="13" fill="#c9d6e3">plan placu, statki, bramy,</text><text x="404" y="302.0" font-size="13" fill="#c9d6e3">kolej, blokady, opłaty</text><line x1="515" y1="330" x2="515" y2="388" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="390" y="390" width="250" height="90" rx="6" fill="#e6f2f6" stroke="#0b6e8f" stroke-width="1.5"/><text x="404" y="427.0" font-size="15" font-weight="600" fill="#0b2545">Warstwa integracji</text><text x="404" y="445.0" font-size="12.5" fill="#5a6876">API, uprawnienia klientów,</text><text x="404" y="461.0" font-size="12.5" fill="#5a6876">kolejka zdarzeń</text><rect x="730" y="110" width="250" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="744" y="138.0" font-size="15" font-weight="600" fill="#0b2545">Portal klienta</text><text x="744" y="156.0" font-size="12.5" fill="#5a6876">śledzenie, awizacje, plan placu</text><line x1="640" y1="435" x2="728" y2="146" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="730" y="210" width="250" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="744" y="238.0" font-size="15" font-weight="600" fill="#0b2545">Powiadomienia</text><text x="744" y="256.0" font-size="12.5" fill="#5a6876">e-mail i SMS o zdarzeniach</text><line x1="640" y1="435" x2="728" y2="246" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="730" y="310" width="250" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="744" y="338.0" font-size="15" font-weight="600" fill="#0b2545">API DCSA Track & Trace</text><text x="744" y="356.0" font-size="12.5" fill="#5a6876">dla armatorów i spedytorów</text><line x1="640" y1="435" x2="728" y2="346" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/><rect x="730" y="410" width="250" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="744" y="438.0" font-size="15" font-weight="600" fill="#0b2545">Prognoza ETA</text><text x="744" y="456.0" font-size="12.5" fill="#5a6876">z pozycji AIS i historii rejsów</text><line x1="640" y1="435" x2="728" y2="446" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr)"/></svg></div>
+        <div class="schemat-tel"><svg viewBox="0 0 360 880" role="img" aria-label="Schemat przepływu danych do portalu klienta" font-family="IBM Plex Sans, sans-serif"><defs><marker id="gr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b6e8f"/></marker></defs><text x="0" y="14" font-size="13" fill="#5a6876">Źródła danych</text><rect x="0" y="24" width="176" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="10" y="48" font-size="13" font-weight="600" fill="#0b2545">Armatorzy (EDI)</text><text x="10" y="66" font-size="11.5" fill="#5a6876">COPARN, BAPLIE, COARRI,</text><text x="10" y="81" font-size="11.5" fill="#5a6876">CODECO</text><rect x="184" y="24" width="176" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="194" y="48" font-size="13" font-weight="600" fill="#0b2545">Bramy z kamerami OCR</text><text x="194" y="66" font-size="11.5" fill="#5a6876">numer, plomba, tablica</text><text x="194" y="81" font-size="11.5" fill="#5a6876">rejestracyjna</text><rect x="0" y="108" width="176" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="10" y="132" font-size="13" font-weight="600" fill="#0b2545">Suwnice i wozy</text><text x="10" y="150" font-size="11.5" fill="#5a6876">telemetria i</text><text x="10" y="165" font-size="11.5" fill="#5a6876">potwierdzenia ruchów</text><rect x="184" y="108" width="176" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="194" y="132" font-size="13" font-weight="600" fill="#0b2545">Port Community System</text><text x="194" y="150" font-size="11.5" fill="#5a6876">wymiana danych w porcie</text><rect x="0" y="192" width="176" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="10" y="216" font-size="13" font-weight="600" fill="#0b2545">Odprawa celna</text><text x="10" y="234" font-size="11.5" fill="#5a6876">zwolnienia i blokady</text><rect x="184" y="192" width="176" height="72" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="194" y="216" font-size="13" font-weight="600" fill="#0b2545">AIS i czujniki IoT</text><text x="194" y="234" font-size="11.5" fill="#5a6876">pozycja statku,</text><text x="194" y="249" font-size="11.5" fill="#5a6876">temperatura reefer</text><line x1="180" y1="280" x2="180" y2="312" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr2)"/><rect x="0" y="314" width="360" height="96" rx="6" fill="#0b2545"/><text x="14" y="344" font-size="16" font-weight="600" fill="#fff">System operacyjny terminalu (TOS)</text><text x="14" y="366" font-size="12.5" fill="#c9d6e3">plan placu, statki, bramy, kolej,</text><text x="14" y="384" font-size="12.5" fill="#c9d6e3">blokady, opłaty</text><line x1="180" y1="410" x2="180" y2="442" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr2)"/><rect x="0" y="444" width="360" height="76" rx="6" fill="#e6f2f6" stroke="#0b6e8f" stroke-width="1.5"/><text x="14" y="474" font-size="15" font-weight="600" fill="#0b2545">Warstwa integracji</text><text x="14" y="496" font-size="12.5" fill="#5a6876">API, uprawnienia klientów, kolejka zdarzeń</text><line x1="180" y1="520" x2="180" y2="552" stroke="#0b6e8f" stroke-width="2" marker-end="url(#gr2)"/><text x="0" y="572" font-size="13" fill="#5a6876">Dla klientów</text><rect x="0" y="582" width="360" height="62" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="14" y="608" font-size="14" font-weight="600" fill="#0b2545">Portal klienta</text><text x="14" y="627" font-size="12.5" fill="#5a6876">śledzenie, awizacje, plan placu</text><rect x="0" y="654" width="360" height="62" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="14" y="680" font-size="14" font-weight="600" fill="#0b2545">Powiadomienia</text><text x="14" y="699" font-size="12.5" fill="#5a6876">e-mail i SMS o zdarzeniach</text><rect x="0" y="726" width="360" height="62" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="14" y="752" font-size="14" font-weight="600" fill="#0b2545">API DCSA Track & Trace</text><text x="14" y="771" font-size="12.5" fill="#5a6876">dla armatorów i spedytorów</text><rect x="0" y="798" width="360" height="62" rx="6" fill="#fff" stroke="#9fb0c0" stroke-width="1.5"/><text x="14" y="824" font-size="14" font-weight="600" fill="#0b2545">Prognoza ETA</text><text x="14" y="843" font-size="12.5" fill="#5a6876">z pozycji AIS i historii rejsów</text></svg></div>
+      </figure>
+      <p class="przypis" style="margin-top:12px">Schemat poglądowy. Ostateczny zakres integracji zależy od wybranego systemu TOS, operatora terminalu i dostępności systemów portowych.</p>
+    </div>
+  </section>
+
+  <section class="sek jasna">
+    <div class="wrap">
+      <h2>Źródła danych</h2>
+      <div class="zrodla-lista">
+        <div><h3>System operacyjny terminalu (TOS)</h3><p>Serce terminalu. Zna położenie każdego kontenera na placu, plan statków, zlecenia dla suwnic, blokady i opłaty. Portal klienta jest warstwą nad TOS: odczytuje z niego dane i pokazuje je w zrozumiałej formie, bez dostępu do sterowania pracą terminalu.</p></div>
+        <div><h3>Bramy z kamerami OCR</h3><p>Przy wjeździe i wyjeździe kamery odczytują numer kontenera, numer plomby i tablicę rejestracyjną. System porównuje odczyt z awizacją, więc kierowca nie musi stać przy okienku, a klient od razu widzi, że kontener wjechał lub wyjechał.</p></div>
+        <div><h3>Suwnice i wozy z telemetrią</h3><p>Suwnice nabrzeżowe, placowe i wozy terminalowe potwierdzają każdy ruch: zdjęcie ze statku, odstawienie na plac, załadunek na wagon. Z tych potwierdzeń powstaje oś czasu zdarzeń w portalu.</p></div>
+        <div><h3>Komunikaty EDI od armatorów</h3><p>Armatorzy i terminal wymieniają standardowe komunikaty UN/EDIFACT. Dzięki nim terminal wie wcześniej, jakie kontenery przypłyną i które ma przyjąć na eksport. Najważniejsze rodzaje opisuje tabela poniżej.</p></div>
+        <div><h3>Port Community System</h3><p>Wspólna platforma wymiany informacji między uczestnikami obrotu portowego: terminalem, agentami, spedytorami, przewoźnikami i służbami. Jeśli w porcie działa taki system, portal może z niego korzystać zamiast budować osobne połączenia z każdym podmiotem.</p></div>
+        <div><h3>Odprawa celna</h3><p>Informacja o zwolnieniu kontenera albo o wytypowaniu go do kontroli pochodzi z systemów celnych (w Polsce platforma PUESC Krajowej Administracji Skarbowej). W portalu klient widzi ją jako blokadę albo jej zdjęcie.</p></div>
+        <div><h3>AIS i prognoza ETA</h3><p>Statki nadają swoją pozycję w systemie AIS. Na tej podstawie, razem z historią rejsów i planem nabrzeży, można szacować godzinę przypłynięcia (ETA) dokładniej niż z samego rozkładu armatora.</p></div>
+        <div><h3>Czujniki IoT w kontenerach chłodzonych</h3><p>Opcjonalnie: kontenery chłodzone podłączone na placu przekazują temperaturę i stan zasilania. Część armatorów ma też czujniki GPS w samych kontenerach. Odchylenie temperatury może wywołać alarm SMS do klienta i dyżurnego.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sek">
+    <div class="wrap dwie">
+      <div>
+        <h2>Komunikaty EDI w skrócie</h2>
+        <p>To nazwy standardowych wiadomości, które armatorzy i terminale wymieniają między swoimi systemami. Klient ich nie widzi, ale to one zasilają oś czasu w portalu.</p>
+      </div>
+      <table class="tab-edi">
+        <thead><tr><th>Komunikat</th><th>Co zawiera</th></tr></thead>
+        <tbody>
+          <tr><th>COPARN</th><td>zlecenie armatora dotyczące kontenera, np. przyjęcia na eksport albo wydania</td></tr>
+          <tr><th>BAPLIE</th><td>plan ładunkowy statku: które kontenery są na pokładzie i w jakich miejscach</td></tr>
+          <tr><th>COARRI</th><td>raport terminalu o rozładunku i załadunku statku</td></tr>
+          <tr><th>CODECO</th><td>raport terminalu o wjeździe i wyjeździe kontenera przez bramę</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sek jasna">
+    <div class="wrap dwie">
+      <div>
+        <h2>Integracja z armatorami: DCSA Track &amp; Trace</h2>
+        <p>Digital Container Shipping Association (DCSA) opracowuje otwarte standardy wymiany danych w żegludze kontenerowej. Standard Track &amp; Trace opisuje, jak przekazywać zdarzenia dotyczące przesyłki, kontenera i środka transportu w jednolitej formie przez API.</p>
+        <p>Jeśli portal udostępni dane w tym formacie, armatorzy i spedytorzy mogą pobierać statusy kontenerów automatycznie do swoich systemów, bez przepisywania i bez osobnej integracji dla każdego z nich.</p>
+      </div>
+      <div>
+        <h3>Transport intermodalny</h3>
+        <p>Te same zdarzenia obejmują dalszą drogę kontenera: załadunek na wagon, wyjazd składu, odbiór przez ciężarówkę z awizacją. Klient widzi jedną historię kontenera od statku do wyjazdu z terminalu, niezależnie od tego, czy dalej jedzie koleją czy drogą.</p>
+        <p><a class="btn btn-g" href="portal.html">Zobacz strefę klienta (demo)</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="stopka">
+  <div class="wrap">
+    <div>
+      <p><b style="color:#fff">STT SWINOUJSCIE TRANSSHIPMENT TERMINAL sp. z o.o.</b></p>
+      <p>ul. Chmielna 73, 00-801 Warszawa · KRS 0000900901 · NIP 527-295-86-07</p>
+    </div>
+    <div>
+      <p>Koncepcja strony. Zdjęcia poglądowe (Pexels), nie przedstawiają terminalu spółki.</p>
+      <p><a href="system.html">Jak działa system</a> · <a href="portal.html">Strefa klienta (demo)</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="iso6346.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

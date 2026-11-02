@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Strefa klienta (demo) | STT Swinoujscie Transshipment Terminal</title>
+<meta name="description" content="Wersja demonstracyjna strefy klienta: śledzenie kontenera, moje kontenery, plan placu, harmonogram statków.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="strona-portal">
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="STT, strona główna">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#0b2545"/><rect x="8" y="9" width="24" height="6" rx="1" fill="#fff"/><rect x="8" y="17" width="24" height="6" rx="1" fill="#7fc3d9"/><path d="M6 30c3.5-3 7-3 10.5 0s7 3 10.5 0 5-2.4 7-1.4" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <div><b>STT</b><span>Strefa klienta</span></div>
+    </a>
+    <button id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <nav class="menu" id="menu">
+      <a href="index.html">Strona główna</a>
+      <a href="system.html">Jak działa system</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <a href="#" id="wyloguj-menu" hidden>Wyloguj</a>
+    </nav>
+  </div>
+</header>
+<div class="demo-pas"><div class="wrap"><span>Wersja demonstracyjna. Wszystkie dane są przykładowe, logowanie nie jest prawdziwym uwierzytelnianiem.</span></div></div>
+
+<main>
+  <!-- LOGOWANIE -->
+  <section class="logowanie" id="ekran-log">
+    <div class="log-in">
+      <form id="log-form" novalidate>
+        <h1>Logowanie do strefy klienta</h1>
+        <p class="podpowiedz">Dane testowe: login <b>demo</b>, hasło <b>demo</b></p>
+        <div class="f-rzad"><label class="et" for="login">Login</label><input class="pole" id="login" name="login" autocomplete="username" autocapitalize="none" spellcheck="false"></div>
+        <div class="f-rzad"><label class="et" for="haslo">Hasło</label><input class="pole" id="haslo" name="haslo" type="password" autocomplete="current-password"></div>
+        <p class="komunikat" id="log-kom" aria-live="polite"></p>
+        <button class="btn btn-g" type="submit" style="width:100%">Zaloguj</button>
+        <p class="przypis" style="margin-top:16px">W docelowym systemie konta zakłada terminal dla spedytorów, armatorów i przewoźników, z logowaniem dwuskładnikowym.</p>
+      </form>
+    </div>
+    <div class="log-foto"><img src="img/plac.webp" alt="Plac kontenerowy (zdjęcie poglądowe)" width="1100" height="825"></div>
+  </section>
+
+  <!-- PORTAL -->
+  <section class="portal" id="ekran-portal" hidden>
+    <aside class="boczne">
+      <div class="kto"><b>Spedycja Przykładowa sp. z o.o.</b>konto demonstracyjne</div>
+      <div class="zakl" role="tablist" aria-label="Sekcje strefy klienta">
+        <button role="tab" aria-selected="true" data-p="sledz"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>Śledź kontener</button>
+        <button role="tab" aria-selected="false" data-p="moje"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M8 6v12M13 6v12"/></svg>Moje kontenery</button>
+        <button role="tab" aria-selected="false" data-p="mapa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/></svg>Plan placu</button>
+        <button role="tab" aria-selected="false" data-p="statki"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 15h18l-2 5H5z"/><path d="M6 15V9h12v6M10 9V5h4v4"/></svg>Harmonogram statków</button>
+        <button role="tab" aria-selected="false" data-p="powiad"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>Powiadomienia</button>
+        <button role="tab" aria-selected="false" data-p="kontakt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Kontakt 24/7</button>
+      </div>
+      <div class="wyloguj"><button class="btn btn-o btn-s" id="wyloguj" type="button">Wyloguj</button></div>
+    </aside>
+
+    <div class="tresc">
+      <!-- SLEDZ -->
+      <div class="panel" id="p-sledz" role="tabpanel">
+        <h1>Śledź kontener</h1>
+        <p class="pod">Numer kontenera wg ISO 6346: 4 litery i 7 cyfr, ostatnia to cyfra kontrolna.</p>
+        <form class="szuk" id="szuk-form" novalidate>
+          <label class="et" for="nr" style="flex:1 1 100%;margin:0">Numer kontenera</label>
+          <input class="pole" id="nr" name="nr" placeholder="np. STTU 123456 9" autocomplete="off" maxlength="15" spellcheck="false" aria-describedby="szuk-kom">
+          <button class="btn btn-m" type="submit">Szukaj</button>
+        </form>
+        <div class="przyklady">Przykładowe numery: <button type="button" data-nr="STTU1234569">STTU 123456 9</button><button type="button" data-nr="BALU7654328">BALU 765432 8</button><button type="button" data-nr="PMRU3011221">PMRU 301122 1</button></div>
+        <p class="komunikat" id="szuk-kom" aria-live="polite"></p>
+        <div class="wynik" id="wynik" hidden></div>
+      </div>
+
+      <!-- MOJE -->
+      <div class="panel" id="p-moje" role="tabpanel" hidden>
+        <h1>Moje kontenery</h1>
+        <p class="pod">Kontenery przypisane do konta (dane przykładowe). Kliknij wiersz, aby zobaczyć szczegóły.</p>
+        <table class="tab" id="tab-moje">
+          <thead><tr><th>Numer</th><th>Typ</th><th>Kierunek</th><th>Statek</th><th>Status</th><th>Lokalizacja</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- MAPA -->
+      <div class="panel" id="p-mapa" role="tabpanel" hidden>
+        <h1>Plan placu</h1>
+        <p class="pod">Schemat poglądowy, nie jest projektem terminalu. Kliknij blok, aby zobaczyć opis i kontenery.</p>
+        <div class="mapa-wrap">
+          <div id="mapa-svg"></div>
+          <div>
+            <div class="boks" id="mapa-info"><h3>Wybierz blok na planie</h3><p class="przypis" style="margin:0">Kolorem morskim zaznaczone są bloki z Twoimi kontenerami.</p></div>
+            <div class="legenda">
+              <div><i style="background:#c9d7e3"></i>blok kontenerów pełnych</div>
+              <div><i style="background:#cfe7d8"></i>kontenery chłodzone (gniazda zasilania)</div>
+              <div><i style="background:#ece3d2"></i>kontenery puste</div>
+              <div><i style="background:#0b6e8f"></i>blok z Twoim kontenerem</div>
+              <div><i style="background:#f3d9a8"></i>kontrola celna</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STATKI -->
+      <div class="panel" id="p-statki" role="tabpanel" hidden>
+        <h1>Harmonogram statków</h1>
+        <p class="pod">Przykładowy harmonogram. ETA aktualizowana na podstawie pozycji statku z systemu AIS.</p>
+        <table class="tab bez-klik" id="tab-statki">
+          <thead><tr><th>Statek</th><th>Rejs</th><th>Nabrzeże</th><th>ETA</th><th>ETD</th><th>Zamknięcie przyjęć</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- POWIADOMIENIA -->
+      <div class="panel" id="p-powiad" role="tabpanel" hidden>
+        <h1>Powiadomienia</h1>
+        <p class="pod">Wybierz zdarzenia, o których chcesz dostać wiadomość. W wersji demo nic nie jest wysyłane.</p>
+        <div class="dwie" style="gap:24px">
+          <div class="boks">
+            <h3>Dane kontaktowe</h3>
+            <div class="f-rzad"><label class="et" for="pw-mail">E-mail</label><input class="pole" id="pw-mail" type="email" value="operacje@spedycja-przyklad.pl"></div>
+            <div class="f-rzad" style="margin:0"><label class="et" for="pw-tel">Telefon do SMS</label><input class="pole" id="pw-tel" type="tel" value="+48 600 000 000"></div>
+          </div>
+          <div class="boks" id="pw-lista"></div>
+        </div>
+        <button class="btn btn-g" type="button" id="pw-zapisz">Zapisz ustawienia</button>
+      </div>
+
+      <!-- KONTAKT -->
+      <div class="panel" id="p-kontakt" role="tabpanel" hidden>
+        <h1>Kontakt awaryjny 24/7</h1>
+        <p class="pod">Dyżur operacyjny terminalu w sprawach, które nie mogą czekać. Numery poniżej są przykładowe.</p>
+        <div class="dwie" style="gap:24px">
+          <div class="boks awaria">
+            <h3>Dyżur operacyjny</h3>
+            <p class="tel">+48 91 000 00 00</p>
+            <p style="margin:0">dyzur@przyklad-terminal.pl<br>czynne całą dobę, także w święta</p>
+          </div>
+          <div class="boks">
+            <h3>Kiedy dzwonić na dyżur</h3>
+            <ul class="lista-funkcji" style="margin:0">
+              <li>alarm temperatury lub zasilania kontenera chłodzonego</li>
+              <li>uszkodzenie kontenera albo naruszona plomba</li>
+              <li>towar niebezpieczny (ADR, IMDG), wyciek</li>
+              <li>pilne wydanie poza oknem awizacji</li>
+            </ul>
+          </div>
+        </div>
+        <div class="boks" style="max-width:640px">
+          <h3>Zgłoś sprawę pilną</h3>
+          <form id="zgl-form" novalidate>
+            <div class="f-rzad"><label class="et" for="zgl-nr">Numer kontenera (opcjonalnie)</label><input class="pole num" id="zgl-nr" maxlength="15" placeholder="np. BALU7654328"></div>
+            <div class="f-rzad"><label class="et" for="zgl-opis">Opis</label><textarea class="pole" id="zgl-opis" rows="3" style="padding:10px 14px;min-height:90px;resize:vertical"></textarea></div>
+            <p class="komunikat" id="zgl-kom" aria-live="polite"></p>
+            <button class="btn btn-g" type="submit">Wyślij zgłoszenie (demo)</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="okno-tlo" id="okno-aw" hidden>
+  <div class="okno" role="dialog" aria-modal="true" aria-labelledby="aw-tyt">
+    <h2 id="aw-tyt">Awizacja odbioru</h2>
+    <p class="przypis" id="aw-kont"></p>
+    <form id="aw-form" novalidate>
+      <div class="rzad2">
+        <div class="f-rzad"><label class="et" for="aw-dzien">Dzień</label><select class="pole" id="aw-dzien"></select></div>
+        <div class="f-rzad"><label class="et" for="aw-okno">Okno czasowe</label><select class="pole" id="aw-okno"><option>06:00-08:00</option><option>08:00-10:00</option><option selected>10:00-12:00</option><option>12:00-14:00</option><option>14:00-16:00</option><option>16:00-18:00</option><option>18:00-20:00</option></select></div>
+      </div>
+      <div class="rzad2">
+        <div class="f-rzad"><label class="et" for="aw-rej">Nr rejestracyjny</label><input class="pole" id="aw-rej" placeholder="np. ZS 12345" autocapitalize="characters"></div>
+        <div class="f-rzad"><label class="et" for="aw-nacz">Naczepa</label><input class="pole" id="aw-nacz" placeholder="np. ZS 9876A" autocapitalize="characters"></div>
+      </div>
+      <div class="f-rzad"><label class="et" for="aw-kier">Kierowca</label><input class="pole" id="aw-kier" placeholder="imię i nazwisko"></div>
+      <p class="komunikat" id="aw-kom" aria-live="polite"></p>
+      <div id="aw-potw"></div>
+      <div class="stopka-okna"><button class="btn btn-o" type="button" id="aw-zamknij">Zamknij</button><button class="btn btn-g" type="submit" id="aw-wyslij">Zamów awizację</button></div>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script src="iso6346.js"></script>
+<script src="app.js"></script>
+<script src="portal.js"></script>
+</body>
+</html>
